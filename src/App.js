@@ -1,7 +1,8 @@
 //TODO: STEP 1 - Import the useState hook.
-import React, { useState } from "react";
-import "./App.css";
-import BottomRow from "./BottomRow";
+import React, { useState } from "react"
+import "./App.css"
+import BottomRow from "./BottomRow"
+import Score from "./component/Score.js"
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
@@ -23,13 +24,13 @@ function App() {
     setHomeScore(homeScore + 1)
   }
   let awayScoreClickHandler = () => {
-    console.log('homeScoreClick')
-    setHomeScore(homeScore + 6)
+    console.log('awayScoreClick')
+    setAwayScore(awayScore + 6)
   }
 
   let awayFgClickHandler = () => {
-    console.log(('homeFgclick'))
-    setHomeScore(homeScore + 1)
+    console.log(('awayFgclick'))
+    setAwayScore(awayScore + 1)
   }
 
   
@@ -56,21 +57,24 @@ function App() {
         <BottomRow />
       </section>
       <section className="buttons">
-        <div className="homeButtons">
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown"
-          onClick={ homeScoreClickHandler }>
-            Home Touchdown
-          </button>
-          <button className="homeButtons__fieldGoal"
-          onClick={ homeFgClickHandler}>
-            Home Field Goal
-            </button>
-        </div>
-        <div className="awayButtons">
-          <button className="awayButtons__touchdown">Away Touchdown</button>
-          <button className="awayButtons__fieldGoal">Away Field Goal</button>
-        </div>
+        <Score 
+        homeScore = {homeScoreClickHandler} 
+        homeFgClick = {homeFgClickHandler}
+        firstClassName = {'homeButtons'}
+        secondClassName = {'__touchdown'}
+        thirdClassName ={'__fieldGoal'}
+        side = {'Home'}
+        />
+        <Score 
+        homeScore = {awayScoreClickHandler} 
+        homeFgClick = {awayFgClickHandler}
+        firstClassName = {'awayButtons'}
+        secondClassName = {'__touchdown'}
+        thirdClassName ={'__fieldGoal'}
+        side = {'Away'}
+        />
+        
+        
       </section>
     </section>
   );
