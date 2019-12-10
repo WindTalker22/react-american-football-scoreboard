@@ -15,7 +15,7 @@ const Score = (theEvilProps) => {
           </button>
         <button className={`${theEvilProps.firstClassName}${theEvilProps.thirdClassName}`}
           onClick={theEvilProps.homeFgClick}>
-          {theEvilProps.side}Field Goal
+          {theEvilProps.side} Field Goal
             </button>
       </div>
     </>

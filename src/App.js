@@ -16,67 +16,67 @@ function App() {
   // Event Handlers
   let homeScoreClickHandler = () => {
     console.log('homeScoreClick')
-    setHomeScore(homeScore + 6)
+    setHomeScore(homeScore + 7)
   }
 
   let homeFgClickHandler = () => {
     console.log(('homeFgclick'))
-    setHomeScore(homeScore + 1)
+    setHomeScore(homeScore + 3)
   }
   let awayScoreClickHandler = () => {
     console.log('awayScoreClick')
-    setAwayScore(awayScore + 6)
+    setAwayScore(awayScore + 7)
   }
 
   let awayFgClickHandler = () => {
     console.log(('awayFgclick'))
-    setAwayScore(awayScore + 1)
+    setAwayScore(awayScore + 3)
   }
 
-  
-  
+
+
 
 
   return (
-    <section className="container">
-      <section className="scoreboard">
-        <div className="topRow">
-          <div className="home">
-            <h2 className="home__name">{ homeTeam }</h2>
+    <>
+    <section className="scoreboard">
+      <div className="topRow">
+        <div className="home">
+          <h2 className="home__name">{homeTeam}</h2>
 
-            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
+          {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
 
-            <div className="home__score">{ homeScore }</div>
-          </div>
-          <div className="timer">00:03</div>
-          <div className="away">
-            <h2 className="away__name">{ awayTeam }</h2>
-            <div className="away__score">{ awayScore }</div>
-          </div>
+          <div className="home__score">{homeScore}</div>
         </div>
-        <BottomRow />
-      </section>
-      <section className="buttons">
-        <Score 
-        homeScore = {homeScoreClickHandler} 
-        homeFgClick = {homeFgClickHandler}
-        firstClassName = {'homeButtons'}
-        secondClassName = {'__touchdown'}
-        thirdClassName ={'__fieldGoal'}
-        side = {'Home'}
-        />
-        <Score 
-        homeScore = {awayScoreClickHandler} 
-        homeFgClick = {awayFgClickHandler}
-        firstClassName = {'awayButtons'}
-        secondClassName = {'__touchdown'}
-        thirdClassName ={'__fieldGoal'}
-        side = {'Away'}
-        />
-        
-        
-      </section>
+        <div className="timer">00:03</div>
+        <div className="away">
+          <h2 className="away__name">{awayTeam}</h2>
+          <div className="away__score">{awayScore}</div>
+        </div>
+      </div>
+      <BottomRow />
     </section>
+    <section className="buttons">
+      <Score
+        homeScore={homeScoreClickHandler}
+        homeFgClick={homeFgClickHandler}
+        firstClassName={'homeButtons'}
+        secondClassName={'__touchdown'}
+        thirdClassName={'__fieldGoal'}
+        side={'Home'}
+      />
+      <Score
+        homeScore={awayScoreClickHandler}
+        homeFgClick={awayFgClickHandler}
+        firstClassName={'awayButtons'}
+        secondClassName={'__touchdown'}
+        thirdClassName={'__fieldGoal'}
+        side={'Away'}
+      />
+
+
+    </section>
+    </>
   );
 }
 
